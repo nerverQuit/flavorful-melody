@@ -10,4 +10,5 @@ public class FlavorfulMelodyApplication {
         SpringApplication.run(FlavorfulMelodyApplication.class, args);
     }
 
+
 }
