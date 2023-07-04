@@ -1,19 +1,24 @@
 package com.example.flavorfulmelody.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-// @Entity
+@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 public class LikeHate {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column
     private boolean isLike;
+
+    @Column
     private boolean isHate;
 
     @ManyToOne
@@ -24,10 +29,4 @@ public class LikeHate {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public LikeHate(Post post, User user) {
-        this.isLike = false;
-        this.isHate = false;
-        this.post = post;
-        this.user = user;
-    }
 }
