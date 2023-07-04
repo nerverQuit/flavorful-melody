@@ -9,11 +9,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@IdClass(LikeHateId.class)
 public class LikeHate {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     @Column
     private boolean isLike;
@@ -21,12 +18,20 @@ public class LikeHate {
     @Column
     private boolean isHate;
 
+    @Id
     @ManyToOne
     @JoinColumn(name = "post_id")
     private Post post;
 
+    @Id
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
+    public LikeHate(Post post, User user) {
+        this.isLike = isLike();
+        this.isHate = isHate();
+        this.post = post;
+        this.user = user;
+    }
 }
