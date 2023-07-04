@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>포스트와 댓글</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #f2f2f2;
+      border-radius: 4px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .post {
+      background-color: #ffffff;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 4px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .post-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .post-content {
+      font-size: 14px;
+    }
+    .comments {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+    }
+    .comment {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+    .comment-author {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .comment-text {
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="title">포스트와 댓글</div>
+  <div class="post" onclick="showComments(1)">
+    <div class="post-title">포스트 1</div>
+    <div class="post-content">첫 번째 포스트 내용입니다.</div>
+  </div>
+  <div class="comments" id="comments-1" style="display: none;">
+    <div class="comment">
+      <div class="comment-author">댓글 작성자 1</div>
+      <div class="comment-text">첫 번째 포스트에 대한 댓글 1입니다.</div>
+    </div>
+    <div class="comment">
+      <div class="comment-author">댓글 작성자 2</div>
+      <div class="comment-text">첫 번째 포스트에 대한 댓글 2입니다.</div>
+    </div>
+  </div>
+  <div class="post" onclick="showComments(2)">
+    <div class="post-title">포스트 2</div>
+    <div class="post-content">두 번째 포스트 내용입니다.</div>
+  </div>
+  <div class="comments" id="comments-2" style="display: none;">
+    <div class="comment">
+      <div class="comment-author">댓글 작성자 3</div>
+      <div class="comment-text">두 번째 포스트에 대한 댓글 1입니다.</div>
+    </div>
+    <div class="comment">
+      <div class="comment-author">댓글 작성자 4</div>
+      <div class="comment-text">두 번째 포스트에 대한 댓글 2입니다.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showComments(postId) {
+    var commentsDiv = document.getElementById('comments-' + postId);
+    if (commentsDiv.style.display === 'none') {
+      commentsDiv.style.display = 'block';
+    } else {
+      commentsDiv.style.display = 'none';
+    }
+  }
+</script>
+</body>
+</html>
