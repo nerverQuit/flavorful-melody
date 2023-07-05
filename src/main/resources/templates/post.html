@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>맛의 협주곡</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-image: url("https://ncc-phinf.pstatic.net/ncc01/2010/7/14/280/2.jpg?type=w646");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0.8); /* 투명한 검정색 배경으로 설정 */
+            height: 235px;
+            padding: 30px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column; /* 수정된 부분: 컬럼 방향으로 배치 */
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 0 0 5px #fff;
+            margin-bottom: 10px;
+            text-align: center;
+            margin: auto;
+            align-self: center;
+        }
+        .container {
+            margin: 0 auto;
+            padding: 20px;
+            display: flex; /* 수정된 부분: 로우 방향으로 배치 */
+            justify-content: space-between; /* 수정된 부분: 컨테이너 사이에 공간을 동일하게 배치 */
+        }
+
+        .middle-container {
+            width: 600px; /* 수정된 부분: 가운데 컨테이너 너비 설정 */
+        }
+
+        .delight-button {
+            display: inline-block;
+            background-image: url("https://cdn.thecollector.com/wp-content/uploads/2022/03/michelangelo-creation-adam-detail-featured.jpg?width=1200&quality=70");
+            background-size: cover;
+            background-position: center;
+            background-color: rgba(0, 0, 0, 0.8); /* 투명한 검정색 배경으로 설정 */
+            color: black;
+            font-weight: bold;
+            text-shadow: 0 0 5px #fff;
+            padding: 20px 80px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .terror-button {
+            display: inline-block;
+            background-image: url("https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99BD074A5B0CF5E833");
+            background-size: cover;
+            background-position: center top -10px;
+            color: black;
+            text-shadow: 0 0 5px #fff;
+            font-weight: bold;
+            padding: 20px 80px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .post {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 4px;
+        }
+        .add-button {
+            display: inline-block;
+            background-color: #4caf50;
+            color: #ffffff;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: auto;
+        }
+        .submit-button {
+            display: inline-block;
+            background-color: #4caf50;
+            color: #ffffff;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: auto;
+        }
+        .submit-container {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .space {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="title">맛의 협주곡</div>
+</div>
+<div class="container">
+    <div class="left-container">
+        <a href="delight.html" class="delight-button">미식의 전당으로</a>
+    </div>
+    <div class="middle-container">
+        <div class="post">
+            <div>제목</div>
+            <div><textarea id="post-title" name="post-title" style="width: 100%;" required></textarea></div>
+            <div class="space"></div>
+            <div>내용</div>
+            <textarea id="post-content" name="post-content" rows="5" style="width: 100%;" required></textarea>
+            <div id="attached-pics"></div>
+            <div class="space"></div>
+            <div class="submit-container">
+                <button class="add-button" onclick="addPic()">사진 첨부하기</button>
+                <button class="submit-button" onclick="submitPost()">글 올리기</button>
+            </div>
+        </div>
+    </div>
+    <div class="right-container">
+        <a href="terror.html" class="terror-button">괴식의 전당으로</a>
+    </div>
+</div>
+
+<script>
+
+    // 첨부된 사진을 저장할 배열
+    let attachedPics = [];
+
+    function addPic() {
+        // 사용자로부터 사진 선택 등의 동작을 받은 후, 첨부된 사진을 처리하는 코드를 추가하세요.
+        // 이 예시에서는 임의의 이미지 URL을 사용하여 첨부된 사진을 표시합니다.
+        const imageUrl = "https://example.com/image.jpg";
+
+        // 첨부된 사진을 배열에 추가
+        attachedPics.push(imageUrl);
+
+        // 첨부된 사진을 표시할 영역의 HTML을 생성
+        const attachedPicsHtml = attachedPics.map(picUrl => `<img src="${picUrl}" alt="Attached Pic" style="max-width: 100px;">`).join('');
+
+        // 첨부된 사진을 표시할 영역에 HTML 추가
+        document.getElementById("attached-pics").innerHTML = attachedPicsHtml;
+    }
+
+    // 글 올리기 버튼 클릭 이벤트 처리
+    function submitPost() {
+        // 작성된 포스트 내용 가져오기
+        const postContent = document.getElementById("post-content").value;
+
+        // 글 작성 영역 초기화
+        document.getElementById("post-content").value = "";
+    }
+</script>
+</body>
+</html>
