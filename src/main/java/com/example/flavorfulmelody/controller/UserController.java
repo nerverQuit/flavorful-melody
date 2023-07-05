@@ -38,10 +38,10 @@ public class UserController {
         try {
             userService.login(requestDto);
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(new ApiResponseDto("ID 또는 비밀번호가 일치하지 않습니다", HttpStatus.BAD_REQUEST.value()));
+            return ResponseEntity.badRequest().body(new ApiResponseDto(e.getMessage(), HttpStatus.BAD_REQUEST.value()));
         }
 
-        response.addHeader(JwtUtil.AUTHORIZATION_HEADER, jwtUtil.createToken(requestDto.getUserid(), requestDto.getRole()));
+        response.addHeader(JwtUtil.AUTHORIZATION_HEADER, jwtUtil.createToken(requestDto.getUsername(), requestDto.getRole()));
 
         return ResponseEntity.ok().body(new ApiResponseDto("로그인 성공", HttpStatus.OK.value()));
     }

@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 public class PostRequestDto {
-	// private String user_id;
 	private String content;
 	// private Long likeCnt;
 	// private Long hateCnt;

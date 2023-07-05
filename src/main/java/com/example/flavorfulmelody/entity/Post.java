@@ -16,8 +16,12 @@ public class Post extends Timestamped {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "content", nullable = false, length = 500)
+	@Column(nullable = false, length = 500)
 	private String content;
+
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
 
 	// @Column(name = "likeCnt", nullable = false)
 	// private Long likeCnt;
