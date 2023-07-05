@@ -19,7 +19,7 @@ public class CommentService {
 
     public CommentResponseDto createComment(CommentRequestDto requestDto, User user) {
         Post post = postService.findPost(requestDto.getPost_id());
-        Comment comment = new Comment(requestDto.getBody());
+        Comment comment = new Comment(requestDto.getComment());
         comment.setUser(user);
         comment.setPost(post);
 
@@ -48,7 +48,7 @@ public class CommentService {
             throw new RejectedExecutionException();
         }
 
-        comment.setBody(requestDto.getBody());
+        comment.setComment(requestDto.getComment());
 
         return new CommentResponseDto(comment);
     }

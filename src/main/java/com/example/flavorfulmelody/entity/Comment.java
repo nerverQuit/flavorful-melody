@@ -22,7 +22,7 @@ public class Comment extends Timestamped {
     private Long id;
 
     @Column(nullable = false)
-    private String body; // 본문
+    private String comment; // 본문
 
     @ManyToOne
     @JoinColumn(name = "post_id")
@@ -32,12 +32,12 @@ public class Comment extends Timestamped {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public Comment(String body) {
-        this.body = body;
+    public Comment(String comment) {
+        this.comment = comment;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
     public void setUser(User user) {
