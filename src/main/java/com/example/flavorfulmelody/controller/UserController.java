@@ -27,7 +27,7 @@ public class UserController {
         try {
             userService.signup(requestDto);
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(new ApiResponseDto("중복된 ID 입니다.", HttpStatus.BAD_REQUEST.value()));
+            return ResponseEntity.badRequest().body(new ApiResponseDto(e.getMessage(), HttpStatus.BAD_REQUEST.value()));
         }
         return ResponseEntity.ok().body(new ApiResponseDto("회원가입이 완료되었습니다", HttpStatus.OK.value()));
     }

@@ -16,8 +16,12 @@ public class UserRequestDto {
             message = "최소 8자 이상, 15자 이하이며 알파벳 대소문자(a~z, A~Z), 숫자(0~9) 로 구성되어야 합니다.")
     private String password;
 
+    @Pattern(regexp = "^[a-zA-Z0-9\uAC00-\uD7A3]{8,10}$",
+            message = "최소 8자 이상, 10자 이하이며 알파벳 대소문자(a~z, A~Z), 숫자(0~9), 문자로 구성되어야 합니다.")
     private String nickname;
 
+    @Pattern(regexp = "^[a-zA-Z0-9+-\\_.]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$",
+            message = "최소 8자 이상, 10자 이하이며 알파벳 대소문자(a~z, A~Z), 숫자(0~9), 문자로 구성되어야 합니다.")
     private String email;
 
     private UserRoleEnum role; // 회원 권한 (ADMIN, USER)

@@ -24,7 +24,11 @@ public class UserService {
 
         //ID 중복체크, 닉네임 중복체크
         if (userRepository.findByUserid(userid).isPresent()){
-            throw new IllegalArgumentException("중복된 ID 입니다.");
+            throw new IllegalArgumentException("이미 존재하는 ID 입니다.");
+        } else if (userRepository.findByNickname(nickname).isPresent()) {
+            throw new IllegalArgumentException("이미 존재하는 닉네임 입니다.");
+        } else if (userRepository.findByEmail(email).isPresent()) {
+            throw  new IllegalArgumentException("이미 존재하는 이메일 입니다.");
         }
 
         //중복되지 않은 ID, 닉네임 -> 데이터베이스에 유저 정보 저장(회원가입)
