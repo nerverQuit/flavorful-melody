@@ -1,7 +1,12 @@
 package com.example.flavorfulmelody.controller;
 
 import java.util.List;
+import java.util.concurrent.RejectedExecutionException;
 
+import com.example.flavorfulmelody.dto.ApiResponseDto;
+import com.example.flavorfulmelody.dto.PostListResponseDto;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.flavorfulmelody.dto.PostRequestDto;
@@ -18,31 +23,45 @@ public class PostController {
 
 	// 전체 피드 조회
 	@GetMapping("/posts")
-	public List<PostResponseDto> getPostList() {
-		return postService.getPostList();
+	public ResponseEntity<PostListResponseDto> getPostList() {
+		PostListResponseDto post_list = postService.getPostList();
+
+		return ResponseEntity.ok().body(post_list);
 	}
 
 	// id 로 선택된 게시물 조회
 	@GetMapping("/posts/{id}")
-	public PostResponseDto getPost(@PathVariable Long id){
-		return postService.getPost(id);
+	public ResponseEntity<PostResponseDto> getPost(@PathVariable Long id){
+		PostResponseDto post = postService.getPost(id);
+
+		return ResponseEntity.ok().body(post);
 	}
 
 	// 게시글 작성
 	@PostMapping("/posts")
-	public PostResponseDto createPost(@RequestBody PostRequestDto requestDto){
-		return postService.createPost(requestDto);
+	public ResponseEntity<PostResponseDto> createPost(@RequestBody PostRequestDto requestDto){
+		PostResponseDto post = postService.createPost(requestDto);
+
+		return ResponseEntity.ok().body(post);
 	}
 
 	// 선택한 게시글 수정(변경)
 	@PutMapping("/posts/{id}")
-	public PostResponseDto updatePost (@PathVariable Long id, @RequestBody PostRequestDto requestDto) {
-		return postService.updatePost(id, requestDto);
+	public ResponseEntity<ApiResponseDto> updatePost (@PathVariable Long id, @RequestBody PostRequestDto requestDto) {
+		try{
+			postService.updatePost(id, requestDto);
+			return ResponseEntity.ok().body(new ApiResponseDto("게시글이 수정 되었습니다.", HttpStatus.OK.value()));
+		} catch (RejectedExecutionException e){
+			return ResponseEntity.badRequest().body(new ApiResponseDto("작성자만 수정 할 수 있습니다.", HttpStatus.BAD_REQUEST.value()));
+		}
+
 	}
 
 	@DeleteMapping("/posts/{id}")
-	public PostResponseDto deletePost(@PathVariable Long id) {
-		return postService.deletePost(id);
+	public ResponseEntity<ApiResponseDto> deletePost(@PathVariable Long id) {
+		postService.deletePost(id);
+
+		return ResponseEntity.ok().body(new ApiResponseDto("게시글이 삭제 되었습니다.", HttpStatus.OK.value()));
 	}
 
 }

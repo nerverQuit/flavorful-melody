@@ -18,8 +18,6 @@ public class PostResponseDto {
 	private Long hateCnt;
 	private LocalDateTime createAt;
 	private LocalDateTime modifiedAt;
-	private int statusCode;
-	private String msg;
 
 	public PostResponseDto(Post post){
 		this.id = post.getId();
@@ -28,10 +26,5 @@ public class PostResponseDto {
 		// this.hateCnt = post.getHateCnt();
 		this.createAt = post.getCreatedAt();
 		this.modifiedAt = post.getModifiedAt();
-	}
-
-	public PostResponseDto(String msg, int statusCode) {
-		this.msg = msg;
-		this.statusCode = statusCode;
 	}
 }

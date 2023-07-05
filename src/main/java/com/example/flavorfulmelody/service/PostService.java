@@ -2,6 +2,8 @@ package com.example.flavorfulmelody.service;
 
 import java.util.List;
 
+import com.example.flavorfulmelody.dto.ApiResponseDto;
+import com.example.flavorfulmelody.dto.PostListResponseDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,8 +21,11 @@ public class PostService {
 
 	private final PostRepository postRepository;
 
-	public List<PostResponseDto> getPostList() {
-		return postRepository.findAllByOrderByCreatedAtDesc().stream().map(PostResponseDto::new).toList();
+	public PostListResponseDto getPostList() {
+		List<PostResponseDto> postList = postRepository.findAllByOrderByCreatedAtDesc().stream().map(PostResponseDto::new).toList();
+
+		return new PostListResponseDto(postList);
+
 	}
 
 	public PostResponseDto getPost(Long id) {
@@ -45,12 +50,11 @@ public class PostService {
 		return new PostResponseDto(post);
 	}
 
-	public PostResponseDto deletePost(Long id) {
+	public void deletePost(Long id) {
 		// 해당 메모가 DB에 존재하는지 확인
 		Post post = findPost(id);
 
 		postRepository.deleteById(id);
-		return new PostResponseDto("게시글을 삭제했습니다.", HttpStatus.OK.value());
 	}
 
 	private Post findPost(Long id) {
