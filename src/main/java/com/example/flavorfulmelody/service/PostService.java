@@ -75,7 +75,7 @@ public class PostService {
 		postRepository.delete(post);
 	}
 
-	private Post findPost(Long id) {
+	public Post findPost(Long id) {
 		return postRepository.findById(id).orElseThrow(() ->
 			new IllegalArgumentException("해당 게시글이 존재하지 않습니다.")
 		); // 메모가 없다면 throw

@@ -1,6 +1,8 @@
 package com.example.flavorfulmelody.dto;
 
 import java.time.LocalDateTime;
+import java.util.Comparator;
+import java.util.List;
 
 import com.example.flavorfulmelody.entity.Post;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -14,10 +16,11 @@ public class PostResponseDto {
 	private Long id;
 	// private String user_id;
 	private String content;
-	private Long likeCnt;
-	private Long hateCnt;
+//	private Long likeCnt;
+//	private Long hateCnt;
 	private LocalDateTime createAt;
 	private LocalDateTime modifiedAt;
+	private List<CommentResponseDto> comments;
 
 	public PostResponseDto(Post post){
 		this.id = post.getId();
@@ -26,5 +29,9 @@ public class PostResponseDto {
 		// this.hateCnt = post.getHateCnt();
 		this.createAt = post.getCreatedAt();
 		this.modifiedAt = post.getModifiedAt();
+		this.comments = post.getComments().stream()
+				.map(CommentResponseDto::new)
+				.sorted(Comparator.comparing(CommentResponseDto::getCreatedAt).reversed())
+				.toList();
 	}
 }

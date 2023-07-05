@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -22,6 +24,9 @@ public class Post extends Timestamped {
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
+
+	@OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
+	private List<Comment> comments;
 
 	// @Column(name = "likeCnt", nullable = false)
 	// private Long likeCnt;

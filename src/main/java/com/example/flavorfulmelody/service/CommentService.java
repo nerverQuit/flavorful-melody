@@ -2,6 +2,9 @@ package com.example.flavorfulmelody.service;
 
 import java.util.concurrent.RejectedExecutionException;
 
+import com.example.flavorfulmelody.entity.Post;
+import com.example.flavorfulmelody.entity.User;
+import com.example.flavorfulmelody.entity.UserRoleEnum;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
