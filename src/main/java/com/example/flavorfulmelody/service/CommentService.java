@@ -28,8 +28,8 @@ public class CommentService {
         return  new CommentResponseDto(comment);
     }
 
-    public void deleteComment(Long post_id, User user) {
-        Comment comment = commentRepository.findById(post_id).orElseThrow();
+    public void deleteComment(Long comment_id, User user) {
+        Comment comment = commentRepository.findById(comment_id).orElseThrow();
 
         // 요청자가 운영자 이거나 댓글 작성자(post.user) 와 요청자(user) 가 같은지 체크
         if (!user.getRole().equals(UserRoleEnum.ADMIN) && !comment.getUser().equals(user)) {
@@ -40,8 +40,8 @@ public class CommentService {
     }
 
     @Transactional
-    public CommentResponseDto updateComment(Long post_id, CommentRequestDto requestDto, User user) {
-        Comment comment = commentRepository.findById(post_id).orElseThrow();
+    public CommentResponseDto updateComment(Long comment_id, CommentRequestDto requestDto, User user) {
+        Comment comment = commentRepository.findById(comment_id).orElseThrow();
 
         // 요청자가 운영자 이거나 댓글 작성자(post.user) 와 요청자(user) 가 같은지 체크
         if (!user.getRole().equals(UserRoleEnum.ADMIN) && !comment.getUser().equals(user)) {
