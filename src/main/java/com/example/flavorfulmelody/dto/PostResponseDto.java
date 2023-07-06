@@ -14,10 +14,7 @@ import lombok.Getter;
 public class PostResponseDto {
 
 	private Long id;
-	// private String user_id;
 	private String content;
-//	private Long likeCnt;
-//	private Long hateCnt;
 	private LocalDateTime createAt;
 	private LocalDateTime modifiedAt;
 	private List<CommentResponseDto> comments;
@@ -25,8 +22,6 @@ public class PostResponseDto {
 	public PostResponseDto(Post post){
 		this.id = post.getId();
 		this.content = post.getContent();
-		// this.likeCnt = post.getLikeCnt();
-		// this.hateCnt = post.getHateCnt();
 		this.createAt = post.getCreatedAt();
 		this.modifiedAt = post.getModifiedAt();
 		this.comments = post.getComments().stream()

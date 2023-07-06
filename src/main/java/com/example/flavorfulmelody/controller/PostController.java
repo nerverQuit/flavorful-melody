@@ -32,9 +32,9 @@ public class PostController {
 	}
 
 	// id 로 선택된 게시물 조회
-	@GetMapping("/posts/{id}")
-	public ResponseEntity<PostResponseDto> getPost(@PathVariable Long id){
-		PostResponseDto post = postService.getPost(id);
+	@GetMapping("/posts/{post_id}")
+	public ResponseEntity<PostResponseDto> getPost(@PathVariable Long post_id){
+		PostResponseDto post = postService.getPost(post_id);
 
 		return ResponseEntity.ok().body(post);
 	}
@@ -48,10 +48,10 @@ public class PostController {
 	}
 
 	// 선택한 게시글 수정(변경)
-	@PutMapping("/posts/{id}")
-	public ResponseEntity<ApiResponseDto> updatePost (@AuthenticationPrincipal UserDetailsImpl userDetails, @PathVariable Long id, @RequestBody PostRequestDto requestDto) {
+	@PutMapping("/posts/{post_id}")
+	public ResponseEntity<ApiResponseDto> updatePost (@AuthenticationPrincipal UserDetailsImpl userDetails, @PathVariable Long post_id, @RequestBody PostRequestDto requestDto) {
 		try{
-			postService.updatePost(id, requestDto, userDetails.getUser());
+			postService.updatePost(post_id, requestDto, userDetails.getUser());
 			return ResponseEntity.ok().body(new ApiResponseDto("게시글이 수정 되었습니다.", HttpStatus.OK.value()));
 		} catch (RejectedExecutionException e){
 			return ResponseEntity.badRequest().body(new ApiResponseDto(e.getMessage(), HttpStatus.BAD_REQUEST.value()));
@@ -60,9 +60,9 @@ public class PostController {
 	}
 
 	@DeleteMapping("/posts/{id}")
-	public ResponseEntity<ApiResponseDto> deletePost(@AuthenticationPrincipal UserDetailsImpl userDetails, @PathVariable Long id) {
+	public ResponseEntity<ApiResponseDto> deletePost(@AuthenticationPrincipal UserDetailsImpl userDetails, @PathVariable Long post_id) {
 		try{
-			postService.deletePost(id, userDetails.getUser());
+			postService.deletePost(post_id, userDetails.getUser());
 			return ResponseEntity.ok().body(new ApiResponseDto("게시글이 삭제 되었습니다.", HttpStatus.OK.value()));
 		} catch (RejectedExecutionException e){
 			return ResponseEntity.badRequest().body(new ApiResponseDto(e.getMessage(), HttpStatus.BAD_REQUEST.value()));

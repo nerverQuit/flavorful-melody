@@ -7,7 +7,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PostRequestDto {
 	private String content;
-	// private Long likeCnt;
-	// private Long hateCnt;
 
 }
