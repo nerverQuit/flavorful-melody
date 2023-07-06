@@ -1,10 +1,215 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+    <title>맛의 협주곡</title>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-image: url("https://ncc-phinf.pstatic.net/ncc01/2010/7/14/280/2.jpg?type=w646");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0.8); /* 투명한 검정색 배경으로 설정 */
+            height: 235px;
+            padding: 30px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column; /* 수정된 부분: 컬럼 방향으로 배치 */
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 0 0 5px #fff;
+            margin-bottom: 10px;
+            text-align: center;
+            margin: auto;
+            align-self: center;
+        }
+        .gallery-container {
+            display: flex;
+            justify-content: space-between; /* 추가된 부분: 양쪽 끝에 공간을 동일하게 배치 */
+        }
+        .login-button,
+        .my-page-button{
+            background-color: #4caf50;
+            color: #ffffff;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-left: auto;
+        }
+        .signup-button,
+        .logout-button{
+            background-color: #4caf50;
+            color: #ffffff;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-right: auto;
+        }
+        .container {
+            margin: 0 auto;
+            padding: 20px;
+            display: flex; /* 수정된 부분: 로우 방향으로 배치 */
+            justify-content: space-between; /* 수정된 부분: 컨테이너 사이에 공간을 동일하게 배치 */
+        }
+        .post {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 4px;
+        }
+
+        .post .post-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .post .post-content {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        .delight-button {
+            display: inline-block;
+            background-image: url("https://cdn.thecollector.com/wp-content/uploads/2022/03/michelangelo-creation-adam-detail-featured.jpg?width=1200&quality=70");
+            background-size: cover;
+            background-position: center;
+            background-color: rgba(0, 0, 0, 0.8); /* 투명한 검정색 배경으로 설정 */
+            color: black;
+            font-weight: bold;
+            text-shadow: 0 0 5px #fff;
+            padding: 20px 80px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .terror-button {
+            display: inline-block;
+            background-image: url("https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99BD074A5B0CF5E833");
+            background-size: cover;
+            background-position: center top -10px;
+            color: black;
+            text-shadow: 0 0 5px #fff;
+            font-weight: bold;
+            padding: 20px 80px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .likehate-buttons {
+            margin-top: 10px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .like-button,
+        .hate-button {
+            background-color: #4caf50;
+            color: #ffffff;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .like-button:hover,
+        .hate-button:hover {
+            background-color: #45a049;
+        }
+
+        .write-button {
+            background-color: #4caf50;
+            color: #ffffff;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            display: inline-block;
+            cursor: pointer;
+            width: 600px;
+            text-align: center;
+        }
+
+    </style>
 </head>
 <body>
+<div class="header">
+    <div class="title">맛의 협주곡</div>
+    <div class="gallery-container">
+        <a href="index.html" class="signup-button">회원가입</a>
+        <a href="#" class="logout-button" style="display: none;">로그아웃</a>
+        <a href="login.html" class="login-button">로그인</a>
+        <a href="mypage.html" class="my-page-button">마이페이지</a>
+    </div>
+</div>
+<div class="container">
+    <div class="left-container">
+        <a href="delight.html" class="delight-button">미식의 전당으로</a>
+    </div>
+    <div class="middle-container">
+        <a href="post.html" class="write-button"> 새로운 조합은 언제나 환영! </a>
+        <div class="post">
+            <h2 class="post-title">첫 번째 포스트 제목</h2>
+            <p class="post-content">첫 번째 포스트 내용 Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="likehate-buttons">
+                <button class="like-button">좋아요</button>
+                <button class="hate-button">싫어요</button>
+            </div>
+        </div>
 
+        <div class="post">
+            <h2 class="post-title">두 번째 포스트 제목</h2>
+            <p class="post-content">두 번째 포스트 내용 Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="likehate-buttons">
+                <button class="like-button">좋아요</button>
+                <button class="hate-button">싫어요</button>
+            </div>
+        </div>
+
+        <!-- 추가 포스트들을 이어서 작성하면 됩니다 -->
+    </div>
+    <div class="right-container">
+        <a href="terror.html" class="terror-button">괴식의 전당으로</a>
+    </div>
+
+    <script>
+        const isLoggedIn = false; // 로그인 여부를 true 또는 false로 설정
+
+        if (isLoggedIn) {
+            document.querySelector('.login-button').style.display = 'none';
+            document.querySelector('.signup-button').style.display = 'none';
+            document.querySelector('.logout-button').style.display = 'inline-block';
+            document.querySelector('.my-page-button').style.display = 'inline-block';
+        } else {
+            document.querySelector('.login-button').style.display = 'inline-block';
+            document.querySelector('.signup-button').style.display = 'inline-block';
+            document.querySelector('.logout-button').style.display = 'none';
+            document.querySelector('.my-page-button').style.display = 'none';
+        }
+
+        // 좋아요 버튼 클릭 이벤트 처리
+        const likeButton = document.querySelector('.like-button');
+        likeButton.addEventListener('click', function() {
+            // 좋아요 버튼이 클릭되었을 때 동작할 코드 작성
+            console.log('좋아요');
+        });
+
+        // 싫어요 버튼 클릭 이벤트 처리
+        const hateButton = document.querySelector('.hate-button');
+        hateButton.addEventListener('click', function() {
+            // 싫어요 버튼이 클릭되었을 때 동작할 코드 작성
+            console.log('싫어요');
+        });
+
+    </script>
+</div>
 </body>
 </html>
