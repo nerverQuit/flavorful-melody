@@ -144,10 +144,10 @@
 <div class="header">
     <div class="title">맛의 협주곡</div>
     <div class="gallery-container">
-        <a href="index.html" class="signup-button">회원가입</a>
+        <a class="signup-button" onclick="location.href='/api/auth/signup'">회원가입</a>
         <a href="#" class="logout-button" style="display: none;">로그아웃</a>
-        <a href="login.html" class="login-button">로그인</a>
-        <a href="mypage.html" class="my-page-button">마이페이지</a>
+        <a class="login-button" onclick="location.href='/api/auth/login'">로그인</a>
+        <a class="my-page-button" onclick="location.href='/api/users/mypage">마이페이지</a>
     </div>
 </div>
 <div class="container">
@@ -193,6 +193,16 @@
             document.querySelector('.signup-button').style.display = 'inline-block';
             document.querySelector('.logout-button').style.display = 'none';
             document.querySelector('.my-page-button').style.display = 'none';
+        }
+
+        function getToken() {
+            let auth = Cookies.get('Authorization');
+
+            if(auth === undefined) {
+                return '';
+            }
+
+            return auth;
         }
 
         // 좋아요 버튼 클릭 이벤트 처리

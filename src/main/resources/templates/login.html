@@ -66,4 +66,26 @@
   </form>
 </div>
 </body>
+<script>
+  function onLogin() {
+    const host = 'http://' + window.location.host;
+
+    let username = $('#username').val();
+    let password = $('#password').val();
+
+    $.ajax({
+      type: "POST",
+      url: `/api/auth/login`,
+      contentType: "application/json",
+      data: JSON.stringify({username: username, password: password}),
+    })
+            .done(function (res, status, xhr) {
+              window.location.href = host;
+            })
+            .fail(function (xhr, textStatus, errorThrown) {
+              console.log('statusCode: ' + xhr.status);
+              window.location.href = host + '/api/user/login-page?error'
+            });
+  }
+</script>
 </html>

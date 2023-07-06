@@ -21,7 +21,7 @@ import java.util.concurrent.RejectedExecutionException;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/")
+@RequestMapping("/api")
 public class ProfileController {
     private final ProfileService profileService;
 
