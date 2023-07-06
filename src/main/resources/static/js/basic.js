@@ -1,16 +1,3 @@
-const isLoggedIn = false; // 로그인 여부를 true 또는 false로 설정
-
-if (isLoggedIn) {
-    document.querySelector('.login-button').style.display = 'none';
-    document.querySelector('.signup-button').style.display = 'none';
-    document.querySelector('.logout-button').style.display = 'inline-block';
-    document.querySelector('.my-page-button').style.display = 'inline-block';
-} else {
-    document.querySelector('.login-button').style.display = 'inline-block';
-    document.querySelector('.signup-button').style.display = 'inline-block';
-    document.querySelector('.logout-button').style.display = 'none';
-    document.querySelector('.my-page-button').style.display = 'none';
-}
 
 function handleButtonClick() {
     if (isLoggedIn) {
