@@ -41,13 +41,13 @@ function submitPost() {
 }
 
 // Function to update the like count display for a specific post
-function updateLikeCount(postId, likeCnt) {
+function updateLikeCnt(postId, likeCnt) {
     const likeCntElement = document.querySelector(`#post-${postId} .like-cnt`);
     likeCntElement.innerText = likeCnt.toString();
 }
 
 // Function to update the dislike count display for a specific post
-function updateHateCount(postId, hateCnt) {
+function updateHateCnt(postId, hateCnt) {
     const hateCntElement = document.querySelector(`#post-${postId} .hate-cnt`);
     hateCntElement.innerText = hateCnt.toString();
 }
