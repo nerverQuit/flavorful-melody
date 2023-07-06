@@ -12,7 +12,6 @@ import lombok.Getter;
 public class PostResponseDto {
 
 	private Long id;
-	// private String user_id;
 	private String content;
 	private Long likeCnt;
 	private Long hateCnt;

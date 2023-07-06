@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 @EnableJpaAuditing
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
 public class FlavorfulMelodyApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(FlavorfulMelodyApplication.class, args);
     }
