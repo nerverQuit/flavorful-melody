@@ -1,4 +1,3 @@
-
 function handleButtonClick() {
     if (isLoggedIn) {
         openModal(); // 로그인 상태면 모달 열기
@@ -18,6 +17,47 @@ function closeModal() {
     var modal = document.getElementById("myModal");
     modal.style.display = "none";
 }
+
+function submitEdit(post_id) {
+    // 1. 대상 contents 를 확인합니다.
+    let contents = $(`#${post_id}-textarea`).val().trim();
+
+    // 2. 작성한 메모가 올바른지 isValidContents 함수를 통해 확인합니다.
+    if (isValidContents(contents) == false) {
+        return;
+    }
+
+    // 3. 전달할 data JSON으로 만듭니다.
+    let data = {'content': content};
+
+    // 4. PUT /api/posts/{post_id} 에 data를 전달합니다.
+    $.ajax({
+        type: "PUT",
+        url: `/api/posts/{post_id}`,
+        contentType: "application/json",
+        data: JSON.stringify(data),
+        success: function (response) {
+            alert('피드 수정에 성공했습니다.');
+            window.location.reload("/api/posts");
+        }
+    });
+}
+
+
+// const deleteButton = document.getElementById('delete-btn');
+//
+// if (deleteButton) {
+//     deleteButton.addEventListener('click', event => {
+//         let id = document.getElementById('post-id').value;
+//         fetch(`/api/posts/${id}`, {
+//             method: 'DELETE'
+//         }).then(() => {
+//             alert('삭제가 완료되었습니다.');
+//             location.replace('/api/posts');
+//         });
+//     });
+// }
+
 
 // 포스트 제출
 function submitPost() {
@@ -108,11 +148,11 @@ postElements.forEach(postElement => {
     const likeButton = postElement.querySelector('.like-button');
     const hateButton = postElement.querySelector('.hate-button');
 
-    likeButton.addEventListener('click', function() {
+    likeButton.addEventListener('click', function () {
         handleLikeButtonClick(postId, likeButton);
     });
 
-    hateButton.addEventListener('click', function() {
+    hateButton.addEventListener('click', function () {
         handleHateButtonClick(postId, hateButton);
     });
 });
