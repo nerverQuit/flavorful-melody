@@ -29,23 +29,18 @@ public class Post extends Timestamped {
 	@OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
 	private List<Comment> comments = new ArrayList<>();
 
-	// @Column(name = "likeCnt", nullable = false)
-	// private Long likeCnt;
-	//
-	// @Column(name = "hateCnt", nullable = false)
-	// private Long hateCnt;
+	@Column
+	private Long likeCnt = 0L;
+
+	@Column
+	private Long hateCnt = 0L;
 
 	public Post(PostRequestDto requestDto){
 		this.content = requestDto.getContent();
-		// this.likeCnt = requestDto.getLikeCnt();
-		// this.unlikeCnt = requestDto.getHateCnt();
 	}
 
 	public void update(PostRequestDto requestDto){
-		// this.user_id = requestDto.getuser();
 		this.content = requestDto.getContent();
-		// this.likeCnt = requestDto.getLikeCnt();
-		// this.unlikeCnt = requestDto.getHateCnt();
 	}
 
 
