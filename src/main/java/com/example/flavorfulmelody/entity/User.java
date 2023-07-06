@@ -38,7 +38,6 @@ public class User {
 
 //    @OneToMany(mappedBy = "user")
 //    private List<Post> postList = new ArrayList<>();
-//
 //    public void addPostList(Post post){
 //        this.postList.add(post);
 //        post.setUser(this);
