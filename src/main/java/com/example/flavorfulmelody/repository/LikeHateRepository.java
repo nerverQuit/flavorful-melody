@@ -6,7 +6,6 @@ import com.example.flavorfulmelody.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
 public interface LikeHateRepository extends JpaRepository<LikeHate, LikeHateId> {
-    LikeHate findByPostAndUser(Long postId, User user);
+    LikeHate findByPostIdAndUser(Long postId, User user);
 }

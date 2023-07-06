@@ -1,8 +1,7 @@
 package com.example.flavorfulmelody.controller;
 
 import com.example.flavorfulmelody.dto.ApiResponseDto;
-import com.example.flavorfulmelody.entity.User;
-import com.example.flavorfulmelody.service.LikeHateService;
+import com.example.flavorfulmelody.service.LikeHateServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -14,22 +13,22 @@ import java.util.concurrent.RejectedExecutionException;
 @RequestMapping("/api")
 public class LikeHateController {
 
-    private final LikeHateService likeHateService;
+    private final LikeHateServiceImpl likeHateServiceImpl;
 
-    public LikeHateController(LikeHateService likeHateService) {
-        this.likeHateService = likeHateService;
+    public LikeHateController(LikeHateServiceImpl likeHateServiceImpl) {
+        this.likeHateServiceImpl = likeHateServiceImpl;
     }
 
-    @PutMapping("/posts/{postId}/like")
-    public ResponseEntity<ApiResponseDto> toggleLikeOnPost(@PathVariable Long postId, User user) {
+    @PostMapping("/posts/{id}/like")
+    public ResponseEntity<ApiResponseDto> toggleLikeOnPost(@PathVariable Long id, @AuthenticationPrincipal UserDetailsImpl userDetails) {
         try {
-            boolean isLiked = likeHateService.checkIfLiked(postId, user);
+            boolean isLiked = likeHateServiceImpl.checkIfLiked(id, userDetails.getUser());
 
             if (isLiked) {
-                likeHateService.removeLikeFromPost(postId, user);
+                likeHateServiceImpl.removeLikeFromPost(id, userDetails.getUser());
                 return ResponseEntity.ok().body(new ApiResponseDto("좋아요 취소", HttpStatus.OK.value()));
             } else {
-                likeHateService.addLikeToPost(postId, user);
+                likeHateServiceImpl.addLikeToPost(id, userDetails.getUser());
                 return ResponseEntity.ok().body(new ApiResponseDto("좋아요", HttpStatus.OK.value()));
             }
         } catch (RejectedExecutionException e) {
@@ -38,16 +37,16 @@ public class LikeHateController {
     }
 
 
-    @PutMapping("/posts/{postId}/hate")
-    public ResponseEntity<ApiResponseDto> toggleHateOnPost(@PathVariable Long postId, User user) {
+    @PostMapping("/posts/{id}/hate")
+    public ResponseEntity<ApiResponseDto> toggleHateOnPost(@PathVariable Long id, @AuthenticationPrincipal UserDetailsImpl userDetails) {
         try {
-            boolean isHated = likeHateService.checkIfHated(postId, user);
+            boolean isHated = likeHateServiceImpl.checkIfHated(id, userDetails.getUser());
 
             if (isHated) {
-                likeHateService.removeHateFromPost(postId, user);
+                likeHateServiceImpl.removeHateFromPost(id, userDetails.getUser());
                 return ResponseEntity.ok().body(new ApiResponseDto("싫어요 취소", HttpStatus.OK.value()));
             } else {
-                likeHateService.addHateToPost(postId, user);
+                likeHateServiceImpl.addHateToPost(id, userDetails.getUser());
                 return ResponseEntity.ok().body(new ApiResponseDto("싫어요", HttpStatus.OK.value()));
             }
         } catch (RejectedExecutionException e) {

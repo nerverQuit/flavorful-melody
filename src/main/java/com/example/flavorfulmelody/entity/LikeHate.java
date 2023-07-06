@@ -5,10 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 @IdClass(LikeHateId.class)
 public class LikeHate {
 
@@ -28,10 +28,5 @@ public class LikeHate {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public LikeHate(Post post, User user) {
-        this.isLike = isLike();
-        this.isHate = isHate();
-        this.post = post;
-        this.user = user;
-    }
 }
+
