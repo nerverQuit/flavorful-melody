@@ -123,3 +123,14 @@ https://www.notion.so/Chili-Dog-c8f294abbbed42f5bfc041089d6f2c82?pvs=4
 
 
 https://docs.google.com/spreadsheets/d/16lcQrTc2CIJ4U_Sn4_HiYmsf5lZ6Rxdg2tQ1ESMYxbk/edit?usp=sharing
+
+<br>
+
+## 👨‍👩‍👧‍👦 7전8기 팀
+
+| [🚩상의성](https://github.com/uiseongsang) | [손명지](https://github.com/SonMyungJi) | [송병민](https://github.com/mini9707) | [조혜연](https://github.com/hjern) |
+|:-------------------------------------:|:------------------------------------:|:-------------------------------------:|:----------------------------------------:|
+| ![image](https://github.com/nerverQuit/flavorful-melody/assets/40707686/22c0a6d5-55e4-41d3-8a65-982bfa03bea3) | ![image](https://github.com/nerverQuit/flavorful-melody/assets/40707686/ff540832-6b1b-4694-9c72-52f84c3e95df) | ![image](https://github.com/nerverQuit/flavorful-melody/assets/40707686/db3f1800-b0d8-40ae-b187-171c39efe352) | ![image](https://github.com/nerverQuit/flavorful-melody/assets/40707686/1bf79669-8c42-462a-8027-96e82a52e08d) |
+|              BACK-END               |              BACK-END               |              BACK-END               |                BACK-END                 |
+
+<br>
