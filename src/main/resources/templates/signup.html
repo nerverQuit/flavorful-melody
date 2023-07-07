@@ -54,7 +54,11 @@
   <form>
     <div class="form-group">
       <label for="username">사용자명:</label>
-      <input type="text" id="username" name="username" required>
+      <input type="username" id="username" name="username" required>
+    </div>
+    <div class="form-group">
+      <label for="nickname">닉네임:</label>
+      <input type="nickname" id="nickname" name="nickname" required>
     </div>
     <div class="form-group">
       <label for="email">이메일:</label>
@@ -65,13 +69,47 @@
       <input type="password" id="password" name="password" required>
     </div>
     <div class="form-group">
-      <label for="confirm-password">비밀번호 확인:</label>
-      <input type="password" id="confirm-password" name="confirm-password" required>
+      <label for="role">role:</label>
+      <input type="role" id="role" name="role" required>
     </div>
     <div class="form-group">
       <input type="submit" value="가입">
     </div>
   </form>
 </div>
+<script>
+  document.querySelector('form').addEventListener('submit', function(event) {event.preventDefault();
+
+    // 폼 데이터 수집
+    var formData = new FormData(this);
+
+    // FormData 객체를 Javascript 객체로 변환
+    var formObject = {};
+    formData.forEach(function(value, key) {
+      formObject[key] = value;
+    })
+
+    // 서버로 폼 데이터 전송 (AJAX 요청 등)
+    fetch('/api/auth/signup', {
+      method: 'POST',
+      body: JSON.stringify(formObject), // FormData 객체를 JSON 형식으로 변환하여 전송
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(function(response) {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error('Error: ' + response.status);
+      }
+    }).then(function(data) {
+      alert(data.message);
+      window.location.href = '/login';
+    }).catch(function(error) {
+      console.error(error);
+    });
+  })
+
+</script>
 </body>
 </html>

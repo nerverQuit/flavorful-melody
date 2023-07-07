@@ -51,10 +51,10 @@
 <body>
 <div class="container">
   <div class="title">로그인</div>
-  <form>
+  <form id="loginForm">
     <div class="form-group">
       <label for="username">사용자명:</label>
-      <input type="text" id="username" name="username" required>
+      <input type="username" id="username" name="username" required>
     </div>
     <div class="form-group">
       <label for="password">비밀번호:</label>
@@ -67,25 +67,40 @@
 </div>
 </body>
 <script>
-  function onLogin() {
-    const host = 'http://' + window.location.host;
+  document.querySelector('#loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-    let username = $('#username').val();
-    let password = $('#password').val();
+    var username = document.querySelector('#username').value;
+    var password = document.querySelector('#password').value;
 
-    $.ajax({
-      type: "POST",
-      url: `/api/auth/login`,
-      contentType: "application/json",
-      data: JSON.stringify({username: username, password: password}),
+    fetch('/login', {
+      method: 'POST',
+      body: JSON.stringify({ username: username, password: password }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
     })
-            .done(function (res, status, xhr) {
-              window.location.href = host;
+            .then(function(response) {
+              if (response.ok) {
+                return response.json();
+              } else {
+                throw new Error('Error: ' + response.status);
+              }
             })
-            .fail(function (xhr, textStatus, errorThrown) {
-              console.log('statusCode: ' + xhr.status);
-              window.location.href = host + '/api/user/login-page?error'
+            .then(function(data) {
+              // 응답 데이터에서 토큰 추출
+              var token = data.token;
+
+              // 토큰을 쿠키에 저장
+              document.cookie = 'jwtToken=' + token;
+
+              // 로그인 성공 처리
+              alert('로그인 성공');
+              window.location.href = '/'; // 로그인 성공 시 이동할 페이지 경로
+            })
+            .catch(function(error) {
+              console.error(error);
             });
-  }
+  });
 </script>
 </html>

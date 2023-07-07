@@ -18,4 +18,9 @@ public class WebController {
     @GetMapping("/api/users/mypage")
     public String mypage() { return "mypage"; }
 
+    @GetMapping("/login")
+    public String login() { return "login"; }
+
+    @GetMapping("/signup")
+    public String singup() { return "signup"; }
 }

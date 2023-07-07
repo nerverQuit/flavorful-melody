@@ -12,18 +12,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/auth")
 public class UserController {
     private final UserService userService;
     private final JwtUtil jwtUtil;
-
-    @GetMapping("/login")
-    public String login() { return "login"; }
-
-    @GetMapping("/signup")
-    public String singup() { return "signup"; }
 
     //회원가입
     @PostMapping("/signup")
