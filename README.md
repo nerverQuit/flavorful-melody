@@ -93,7 +93,7 @@
 
 # 프론트엔드
 ## 메인페이지 (index.html)
-![](https://velog.velcdn.com/images/uiseongsang/post/b98c038b-e827-47d6-98b1-38c8dbe21af8/image.png)
+![image](https://github.com/nerverQuit/flavorful-melody/assets/40707686/dda70634-2e66-46ea-b6eb-f93d87d4d322)
 
 ## 로그인 / 회원가입 (login / signup.html)
 ![](https://velog.velcdn.com/images/uiseongsang/post/ca63af91-84d8-494b-a39a-97fe6c038137/image.png)
