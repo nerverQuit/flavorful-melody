@@ -82,9 +82,13 @@
 ![](https://velog.velcdn.com/images/uiseongsang/post/ec7b642b-4462-46d7-b556-582b26c8fc3d/image.png)
 
 # 역할분담
+
 게시물 CRUD + 전체 모아보기 (혜연)
+
 로그인/회원가입, *프로필 관리 (병민)
+
 댓글 CURD (의성)
+
 좋아요/싫어요, 프론트엔드 (명지)
 
 # 프론트엔드
