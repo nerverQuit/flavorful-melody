@@ -99,7 +99,7 @@
 ![](https://velog.velcdn.com/images/uiseongsang/post/ca63af91-84d8-494b-a39a-97fe6c038137/image.png)
 
 ## 상세페이지 (detail.html)
-![](https://velog.velcdn.com/images/uiseongsang/post/2508d6f2-7738-4e0c-96a3-fd3b00e055d0/image.png)
+![image](https://github.com/nerverQuit/flavorful-melody/assets/40707686/275c7a6d-dbf3-4cb6-9e43-fcf0bc1feebb)
 
 ## 미식 / 괴식의 전당 (delight / terror.html)
 ![](https://velog.velcdn.com/images/uiseongsang/post/5888d53e-be9c-4656-bc91-4dac8a5a4efa/image.png)
