@@ -93,13 +93,13 @@
 
 # 프론트엔드
 ## 메인페이지 (index.html)
-![image](https://github.com/nerverQuit/flavorful-melody/assets/40707686/dda70634-2e66-46ea-b6eb-f93d87d4d322)
+![image](https://github.com/nerverQuit/flavorful-melody/assets/40707686/f12100dc-739b-47c2-aa66-726eb5a43a4b)
 
 ## 로그인 / 회원가입 (login / signup.html)
 ![](https://velog.velcdn.com/images/uiseongsang/post/ca63af91-84d8-494b-a39a-97fe6c038137/image.png)
 
 ## 상세페이지 (detail.html)
-![image](https://github.com/nerverQuit/flavorful-melody/assets/40707686/275c7a6d-dbf3-4cb6-9e43-fcf0bc1feebb)
+![image](https://github.com/nerverQuit/flavorful-melody/assets/40707686/4e7ca54a-ebbd-4ad9-927a-3df8d53e41ff)
 
 ## 미식 / 괴식의 전당 (delight / terror.html)
 ![](https://velog.velcdn.com/images/uiseongsang/post/5888d53e-be9c-4656-bc91-4dac8a5a4efa/image.png)
