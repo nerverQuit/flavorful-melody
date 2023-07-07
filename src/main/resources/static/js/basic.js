@@ -28,13 +28,13 @@ function goToDetail(postId) {
     window.location.href = 'detail.html?postId=' + postId;
 }
 
-// function handleButtonClick() {
-//     if (isLoggedIn) {
-//         openModal(); // 로그인 상태면 모달 열기
-//     } else {
-//         alert("로그인을 하거나 회원가입을 진행해주세요."); // 로그인 상태가 아니면 알림 메시지 보여주기
-//     }
-// }
+function handleButtonClick() {
+    if (isLoggedIn) {
+        openModal(); // 로그인 상태면 모달 열기
+    } else {
+        alert("로그인을 하거나 회원가입을 진행해주세요."); // 로그인 상태가 아니면 알림 메시지 보여주기
+    }
+}
 
 // 모달 열기
 function openModal() {

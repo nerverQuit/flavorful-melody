@@ -91,8 +91,15 @@
               // 응답 데이터에서 토큰 추출
               var token = data.token;
 
-              // 토큰을 쿠키에 저장
-              document.cookie = 'jwtToken=' + token;
+              handleLoginSuccess(token);
+
+              function storeTokenInCookie(token) {
+                document.cookie = `Authorization=${token}; path=/`;
+              }
+
+              function handleLoginSuccess(token) {
+                storeTokenInCookie(token);
+              }
 
               // 로그인 성공 처리
               alert('로그인 성공');
