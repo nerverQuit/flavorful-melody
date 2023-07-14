@@ -50,12 +50,8 @@
 > 링크 들어가셔서 자세하게 하나하나씩 클릭해서 보세요!
 
 링크: https://thomass-organization-12.gitbook.io/flavorful-melody/
-# ERD
-![](https://velog.velcdn.com/images/uiseongsang/post/0fcd512d-9c09-415b-a710-0459938a3f25/image.png)
-
-
-
-
+# ERD (7/15 수정완료)
+<img width="870" alt="image" src="https://github.com/nerverQuit/flavorful-melody/assets/40707686/a6fe0605-f1d5-4f70-b2b4-ae3103046650">
 링크: https://lucid.app/documents/view/831800f5-7a8b-4a98-9842-3b44083193c6
 
 # 와이어프레임
