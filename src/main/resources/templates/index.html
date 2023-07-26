@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css">
+<!--    <script src="https://code.jquery.com/jquery-3.7.0.min.js"-->
+<!--            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>-->
+    <title>맛의 협주곡</title>
+    <script src="/js/basic.js"></script>
+</head>
+<body>
+<div class="header">
+    <div class="title">맛의 협주곡</div>
+    <div class="gallery-container">
+        <a class="signup-button" onclick="location.href='/api/auth/signup'">회원가입</a>
+        <a href="#" class="logout-button" style="display: none;">로그아웃</a>
+        <a class="login-button" onclick="location.href='/api/auth/login'">로그인</a>
+        <a class="my-page-button" onclick="location.href='/api/users/mypage'">마이페이지</a>
+    </div>
+</div>
+<div class="container">
+    <div class="left-container">
+        <a href="delight.html" class="delight-button">미식의 전당으로</a>
+    </div>
+    <div class="middle-container">
+        <button class="write-button" onclick="openModal()"> 새로운 조합은 언제나 환영! </button>
+        <div class="post" onclick="goToDetail('postId')">
+            <p class="post-content">첫 번째 포스트 내용 Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="likehate-buttons">
+                <button class="like-button" onclick = "handleLikeButtonClick(1, this)">좋아요</button>
+                <span class="like-cnt">0</span>
+                <button class="hate-button" onclick = "handleHateButtonClick(1, this)">싫어요</button>
+                <span class="hate-cnt">0</span>
+            </div>
+        </div>
+
+        <div class="post">
+            <p class="post-content">두 번째 포스트 내용 Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="likehate-buttons">
+                <button class="like-button" onclick = "handleLikeButtonClick(2, this)">좋아요</button>
+                <span class="like-cnt">0</span>
+                <button class="hate-button" onclick = "handleHateButtonClick(2, this)">싫어요</button>
+                <span class="hate-cnt">0</span>
+            </div>
+        </div>
+
+        <!-- 추가 포스트들을 이어서 작성하면 됩니다 -->
+    </div>
+    <div class="right-container">
+        <a href="terror.html" class="terror-button">괴식의 전당으로</a>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <textarea id="postTextArea" rows="4" cols="50"></textarea>
+            <br>
+            <div class="modal-container">
+                <button class="submit-button" onclick="submitPost()">저장</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

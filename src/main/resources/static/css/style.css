@@ -1,0 +1,188 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-image: url("https://ncc-phinf.pstatic.net/ncc01/2010/7/14/280/2.jpg?type=w646");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.8); /* 투명한 검정색 배경으로 설정 */
+    height: 235px;
+    padding: 30px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* 수정된 부분: 컬럼 방향으로 배치 */
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0 0 5px #fff;
+    margin-bottom: 10px;
+    text-align: center;
+    margin: auto;
+    align-self: center;
+}
+
+.gallery-container {
+    display: flex;
+    justify-content: space-between; /* 추가된 부분: 양쪽 끝에 공간을 동일하게 배치 */
+}
+
+.login-button,
+.my-page-button{
+    background-color: #4caf50;
+    color: #ffffff;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-left: auto;
+}
+
+.signup-button,
+.logout-button{
+    background-color: #4caf50;
+    color: #ffffff;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-right: auto;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 20px;
+    display: flex; /* 수정된 부분: 로우 방향으로 배치 */
+    justify-content: space-between; /* 수정된 부분: 컨테이너 사이에 공간을 동일하게 배치 */
+}
+
+.post {
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.post .post-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.post .post-content {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.delight-button {
+    display: inline-block;
+    background-image: url("https://cdn.thecollector.com/wp-content/uploads/2022/03/michelangelo-creation-adam-detail-featured.jpg?width=1200&quality=70");
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.8); /* 투명한 검정색 배경으로 설정 */
+    color: black;
+    font-weight: bold;
+    text-shadow: 0 0 5px #fff;
+    padding: 20px 80px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.terror-button {
+    display: inline-block;
+    background-image: url("https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99BD074A5B0CF5E833");
+    background-size: cover;
+    background-position: center top -10px;
+    color: black;
+    text-shadow: 0 0 5px #fff;
+    font-weight: bold;
+    padding: 20px 80px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+/* 모달 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 550px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#postTextArea {
+    width: 502px !important;
+    height: 146px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    padding: 18px;
+    resize: none;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-container,
+.likehate-buttons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.submit-button,
+.like-button,
+.hate-button {
+    background-color: #4caf50;
+    color: #ffffff;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.like-button:hover,
+.hate-button:hover {
+    background-color: #45a049;
+}
+
+.write-button {
+    background-color: #4caf50;
+    color: #ffffff;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    display: inline-block;
+    cursor: pointer;
+    width: 600px;
+    text-align: center;
+}
